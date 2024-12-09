@@ -1,0 +1,23 @@
+<div class="bg-white rounded-lg shadow p-4">
+  <h2 class="text-xl font-bold mb-4">Carrinho</h2>
+  
+  <% if current_cart.items.any? %>
+    <div class="space-y-2">
+      <% current_cart.items.each do |book| %>
+        <div class="flex justify-between items-center">
+          <span><%= book.name %></span>
+          <span class="font-bold">$<%= book.price %></span>
+        </div>
+      <% end %>
+      
+      <div class="border-t pt-2 mt-2">
+        <div class="flex justify-between items-center font-bold">
+          <span>Total:</span>
+          <span>$<%= current_cart.total %></span>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <p class="text-gray-500">Seu carrinho está vazio</p>
+  <% end %>
+</div>

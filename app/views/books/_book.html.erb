@@ -1,32 +1,36 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Name:</strong>
-    <%= book.name %>
-  </p>
+<div class="bg-white rounded-lg shadow-lg p-6">
+  <div class="space-y-4">
+    <div>
+      <h3 class="text-lg font-medium text-gray-900">Nome</h3>
+      <p class="mt-1 text-gray-600"><%= book.name %></p>
+    </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= book.description %>
-  </p>
+    <div>
+      <h3 class="text-lg font-medium text-gray-900">Descrição</h3>
+      <p class="mt-1 text-gray-600"><%= book.description %></p>
+    </div>
 
-  <p>
-    <strong>Image:</strong>
-    <%= book.image %>
-  </p>
+    <div>
+      <h3 class="text-lg font-medium text-gray-900">Autor</h3>
+      <p class="mt-1 text-gray-600"><%= book.author %></p>
+    </div>
 
-  <p>
-    <strong>Stock:</strong>
-    <%= book.stock %>
-  </p>
+    <div class="flex justify-between">
+      <div>
+        <h3 class="text-lg font-medium text-gray-900">Preço</h3>
+        <p class="mt-1 text-gray-600">$<%= number_with_precision(book.price, precision: 2) %></p>
+      </div>
 
-  <p>
-    <strong>Price:</strong>
-    <%= book.price %>
-  </p>
+      <div>
+        <h3 class="text-lg font-medium text-gray-900">Estoque</h3>
+        <p class="mt-1 text-gray-600"><%= book.stock %> units</p>
+      </div>
+    </div>
 
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
-
+    <% if book.image.present? %>
+      <div>
+        <img src="<%= book.image %>" alt="<%= book.name %>" class="mt-2 w-full h-48 object-cover rounded-lg">
+      </div>
+    <% end %>
+  </div>
 </div>

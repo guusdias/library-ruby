@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: "Book was successfully created." }
+      format.html { redirect_to @book, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,6 +55,16 @@ class BooksController < ApplicationController
       format.html { redirect_to books_path, status: :see_other, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def add_to_cart
+    @book = Book.find(params[:id])
+
+    # Inicializa o carrinho na sessão se não existir
+    session[:cart] ||= []
+    # Adiciona o ID do livro ao carrinho
+    session[:cart] << @book.id
+    redirect_to @book, notice: "Livro adicionado ao carrinho com sucesso."
   end
 
   private

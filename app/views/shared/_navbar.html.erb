@@ -1,0 +1,15 @@
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <%= link_to "lib gus", root_path, class: "text-white text-lg font-semibold" %>
+      <div class="flex space-x-4">
+        <%= link_to "Books", books_path, class: "text-gray-300 hover:text-white px-3 py-2 rounded-md" %>
+        <%= link_to "Orders", books_path  , class: "text-gray-300 hover:text-white px-3 py-2 rounded-md" %>
+        <%= link_to "Cart", add_to_cart_path  , class: "text-gray-300 hover:text-white px-3 py-2 rounded-md" %>
+        <!-- 
+        
+        -->
+      </div>
+    </div>
+  </div>
+</nav>
